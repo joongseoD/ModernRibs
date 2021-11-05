@@ -1,33 +1,3 @@
-<a href="https://fastcampus.co.kr/dev_red_rsj?utm_source=soojin-github&utm_medium=readme&utm_campaign=soojin">
-  <img src="https://soojin.ro/assets/posts/fastcampus-0.png" />
-</a>
-
-<div align = "center">
-  <a href="https://fastcampus.co.kr/dev_red_rsj?utm_source=soojin-github&utm_medium=readme&utm_campaign=soojin">
-    <img src="https://img.shields.io/badge/강의-패스트캠퍼스-red?style=flat" />
-  </a>
-  <a href="https://soojin.ro">
-    <img src="https://img.shields.io/badge/iOS개발자-노수진-orange?style=flat" />
-  </a>
-  <a href="https://github.com/nsoojin/MiniSuperApp-fastcampus">
-    <img src="https://img.shields.io/badge/실습 프로젝트-미니슈퍼앱-378805?style=flat" />
-  </a>
-  <a href="https://github.com/nsoojin/MiniSuperApp-fastcampus/discussions/categories/아무-질문이나-환영합니다">
-    <img src="https://img.shields.io/badge/질문-환영-ffda00?style=flat" />
-  </a>
-</div>
-
-### "모바일 개발자에게 확장성(scalability)이란
-
-모바일 팀과 앱의 규모가 계속 커져도 사용자 경험과 개발자 경험 모두를 안정적으로 유지하는 것이라고 생각합니다.
-
-개발자의 기술력은 개발 과정에서 발생하는 병목 현상을 얼마나 잘 처리하는지에서 보여지죠. 서버의 경우에는 많은 사용자가 몰릴 때 병목 현상이 발생하지만, 모바일의 경우에는 하나의 프로그램에 다수의 개발자들의 코드가 몰릴 때 병목이 발생한다고 볼 수 있습니다."
-
-관련글: [모바일 개발자에게 scalability란 뭘까](https://soojin.ro/blog/scalability)
-<br>
-
-# 강의 내용
-
 ### 1부. 코드 레벨 아키텍처: 재사용 가능한 코드를 만드는 스킬
 
 객체를 작게 만들고, 작은 객체를 조합해서 복잡한 기능으로 합치는 것이 아키텍처의 시작입니다. Massive View Controller, Massive View Model, Massive Interactor는 아키텍처만의 문제가 아니라 개발자의 [composition](https://en.wikipedia.org/wiki/Object_composition) 활용 능력에 따라 달라질 수 있습니다. Composition이 강력한 아키텍처 프레임워크 RIBs를 기반으로 미니 슈퍼앱을 만들어봅니다.

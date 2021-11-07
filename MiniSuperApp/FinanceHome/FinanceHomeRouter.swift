@@ -47,7 +47,7 @@ final class FinanceHomeRouter: ViewableRouter<FinanceHomeInteractable, FinanceHo
     }
     
     func attachCardOnFileDashboard() {
-        if cardOnFileRouting != nil { return }
+        guard cardOnFileRouting == nil else { return }
         
         let router = cardOnFileDashboardBuildable.build(withListener: interactor)
         let dashboard = router.viewControllable
@@ -57,9 +57,7 @@ final class FinanceHomeRouter: ViewableRouter<FinanceHomeInteractable, FinanceHo
     }
     
     func attachAddPaymentMethod() {
-        if addPaymentMethodRouting != nil {
-            return
-        }
+        guard addPaymentMethodRouting == nil else { return }
         
         let router = addPaymentMethodBuildable.build(withListener: interactor)
         let navigation = NavigationControllerable(root: router.viewControllable)

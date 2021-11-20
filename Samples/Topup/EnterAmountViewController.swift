@@ -77,7 +77,7 @@ final class EnterAmountViewController: UIViewController, EnterAmountPresentable,
     title = "충전하기"
     view.backgroundColor = .backgroundColor
     
-    setupNavigationItem(with: .close, target: self, action: #selector(didTapClose))
+    setupNavigationItem(target: self, action: #selector(didTapClose))
     
     view.addSubview(selectedPaymentMethodView)
     view.addSubview(enterAmountWidget)

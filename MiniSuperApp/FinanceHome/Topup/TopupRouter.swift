@@ -7,7 +7,7 @@
 
 import ModernRIBs
 
-protocol TopupInteractable: Interactable, AddPaymentMethodListener {
+protocol TopupInteractable: Interactable, AddPaymentMethodListener, EnterAmountListener {
     var router: TopupRouting? { get set }
     var listener: TopupListener? { get set }
     var presentationDelegateProxy: AdaptivePresentationControllerDelegateProxy { get set }
@@ -25,20 +25,26 @@ final class TopupRouter: Router<TopupInteractable>, TopupRouting {
     private let addPaymentMethodBuildable: AddPaymentMethodBuildable
     private var addPaymentMethodRouting: Routing?
     
+    private let enterAmountBuildable: EnterAmountBuildable
+    private var enterAmountRouting: Routing?
+    
     init(
         interactor: TopupInteractable,
         viewController: ViewControllable,
-        addPaymentMethodBuildable: AddPaymentMethodBuildable
+        addPaymentMethodBuildable: AddPaymentMethodBuildable,
+        enterAmountBuildable: EnterAmountBuildable
     ) {
         self.viewController = viewController
         self.addPaymentMethodBuildable = addPaymentMethodBuildable
+        self.enterAmountBuildable = enterAmountBuildable
         super.init(interactor: interactor)
         interactor.router = self
     }
 
     func cleanupViews() {
-        // TODO: Since this router does not own its view, it needs to cleanup the views
-        // it may have added to the view hierarchy, when its interactor is deactivated.
+        if viewController.uiviewController.presentedViewController != nil, navigationControllable != nil {
+            navigationControllable?.dismiss(completion: nil)
+        }
     }
 
     // MARK: - Private
@@ -72,5 +78,20 @@ final class TopupRouter: Router<TopupInteractable>, TopupRouting {
         guard navigationControllable != nil else { return }
         viewController.dismiss(completion: completion)
         navigationControllable = nil
+    }
+    
+    func attachEnterAmount() {
+        guard enterAmountRouting == nil else { return }
+        let router = enterAmountBuildable.build(withListener: interactor)
+        presentInsideNavigation(router.viewControllable)
+        attachChild(router)
+        enterAmountRouting = router
+    }
+    
+    func detachEnterAmount() {
+        guard let router = enterAmountRouting else { return }
+        dismissInsideNavigation(completion: nil)
+        detachChild(router)
+        enterAmountRouting = nil
     }
 }

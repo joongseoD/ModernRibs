@@ -51,6 +51,7 @@ final class SuperPayDashboardInteractor: PresentableInteractor<SuperPayDashboard
         // TODO: Implement business logic here.
         
         dependency.balance
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] balance in
                 self?.dependency.balanceFormatter.string(from: NSNumber(value: balance)).map {
                     self?.presenter.updateBalance(String($0))

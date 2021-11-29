@@ -7,19 +7,19 @@ protocol FinanceHomeDependency: Dependency {
 
 final class FinanceHomeComponent: Component<FinanceHomeDependency>, SuperPayDashboardDependency, CardOnFileDashboardDependency, AddPaymentMethodDependency, AddPaymentMethodInteractorDependency, TopupDependency {
 
-    private let balancePublisher: CurrentValuePublisher<Double>
-    var balance: ReadOnlyCurrentValuePublisher<Double> { balancePublisher }
-    var cardOnFileRepository: CardOnFileRepository
+    let cardOnFileRepository: CardOnFileRepository
+    let superPayRepository: SuperPayRepository
+    var balance: ReadOnlyCurrentValuePublisher<Double> { superPayRepository.balance }
     var topupBaseViewController: ViewControllable
     
     init(
         dependency: FinanceHomeDependency,
-        balance: CurrentValuePublisher<Double>,
         cardOnFileRepository: CardOnFileRepository,
+        superPayRepository: SuperPayRepository,
         topupBaseViewController: ViewControllable
     ) {
-        self.balancePublisher = balance
         self.cardOnFileRepository = cardOnFileRepository
+        self.superPayRepository = superPayRepository
         self.topupBaseViewController = topupBaseViewController
         super.init(dependency: dependency)
     }
@@ -40,12 +40,11 @@ final class FinanceHomeBuilder: Builder<FinanceHomeDependency>, FinanceHomeBuild
     
     func build(withListener listener: FinanceHomeListener) -> FinanceHomeRouting {
         let viewController = FinanceHomeViewController()
-        let balancePublisher = CurrentValuePublisher<Double>(0)
         let cardOnFileRepository = CardOnFileRepositoryImp()
         
         let component = FinanceHomeComponent(dependency: dependency,
-                                             balance: balancePublisher,
                                              cardOnFileRepository: cardOnFileRepository,
+                                             superPayRepository: SuperPayRepositoryImp(),
                                              topupBaseViewController: viewController)
         
         let interactor = FinanceHomeInteractor(presenter: viewController)

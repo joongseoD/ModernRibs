@@ -19,6 +19,7 @@ protocol TopupRouting: Routing {
 
 protocol TopupListener: AnyObject {
     func topupDidClose()
+    func topupDidFinish()
 }
 
 protocol TopupInteractorDependency {
@@ -75,7 +76,8 @@ final class TopupInteractor: Interactor, TopupInteractable, AddPaymentMethodList
     }
     
     func addPaymentMethodDidAddCard(paymentMethod: PaymentMethod) {
-        
+        dependency.paymentMethodStream.send(paymentMethod)
+        router?.attachEnterAmount()
     }
     
     func enterAmountDidTapClose() {
@@ -85,6 +87,10 @@ final class TopupInteractor: Interactor, TopupInteractable, AddPaymentMethodList
     
     func enterAmountDidTapPaymentMethod() {
         router?.attachCardOnFile(paymentMethods: paymentMethods)
+    }
+    
+    func enterAmountDidFinishTopup() {
+        listener?.topupDidFinish()
     }
     
     func cardOnFileDidTapClose() {

@@ -13,7 +13,7 @@ import CombineUtil
 import AddPaymentMethod
 import RIBsUtil
 
-protocol TopupRouting: Routing {
+public protocol TopupRouting: Routing {
     func cleanupViews()
     func attachAddPaymentMethod(closeButtonType: DismissButtonType)
     func detachAddPaymentMethod()
@@ -24,7 +24,7 @@ protocol TopupRouting: Routing {
     func popToRoot()
 }
 
-protocol TopupListener: AnyObject {
+public protocol TopupListener: AnyObject {
     func topupDidClose()
     func topupDidFinish()
 }

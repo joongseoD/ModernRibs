@@ -31,7 +31,7 @@ final class CardOnFileBuilder: Builder<CardOnFileDependency>, CardOnFileBuildabl
     }
     
     func build(withListener listener: CardOnFileListener, paymentMethods: [PaymentMethod]) -> CardOnFileRouting {
-        let component = CardOnFileComponent(dependency: dependency)
+        let _ = CardOnFileComponent(dependency: dependency)
         let viewController = CardOnFileViewController()
         let interactor = CardOnFileInteractor(presenter: viewController, paymentMethods: paymentMethods)
         interactor.listener = listener

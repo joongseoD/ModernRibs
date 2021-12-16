@@ -16,6 +16,7 @@
 		25B8B402275623DC00879B08 /* CombineUtil in Frameworks */ = {isa = PBXBuildFile; productRef = 25B8B401275623DC00879B08 /* CombineUtil */; };
 		25B8B404275623DC00879B08 /* RIBsUtil in Frameworks */ = {isa = PBXBuildFile; productRef = 25B8B403275623DC00879B08 /* RIBsUtil */; };
 		25B8B406275623DC00879B08 /* SuperUI in Frameworks */ = {isa = PBXBuildFile; productRef = 25B8B405275623DC00879B08 /* SuperUI */; };
+		25E4CB57276AF997005BEF26 /* AddPaymentMethodImp in Frameworks */ = {isa = PBXBuildFile; productRef = 25E4CB56276AF997005BEF26 /* AddPaymentMethodImp */; };
 		25EF2B612761DB9700E115A2 /* FinanceHome in Frameworks */ = {isa = PBXBuildFile; productRef = 25EF2B602761DB9700E115A2 /* FinanceHome */; };
 		25F0B3B727257F4300E00D9B /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 25F0B3B627257F4300E00D9B /* CombineExt */; };
 		25F7EC1E276AD106009FB270 /* ProfileHome in Frameworks */ = {isa = PBXBuildFile; productRef = 25F7EC1D276AD106009FB270 /* ProfileHome */; };
@@ -60,6 +61,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25EF2B612761DB9700E115A2 /* FinanceHome in Frameworks */,
+				25E4CB57276AF997005BEF26 /* AddPaymentMethodImp in Frameworks */,
 				253157992757379B00E07E95 /* Topup in Frameworks */,
 				25F0B3B727257F4300E00D9B /* CombineExt in Frameworks */,
 				25FD66D427561981008E76F1 /* AddPaymentMethod in Frameworks */,
@@ -183,6 +185,7 @@
 				25F7EC1D276AD106009FB270 /* ProfileHome */,
 				25F7EC21276AD5F4009FB270 /* TransportHomeImp */,
 				25F7EC23276ADACF009FB270 /* TopupImp */,
+				25E4CB56276AF997005BEF26 /* AddPaymentMethodImp */,
 			);
 			productName = SuperRedApp;
 			productReference = F5829F5526DB2BC400BFA8CD /* MiniSuperApp.app */;
@@ -492,6 +495,10 @@
 		25B8B405275623DC00879B08 /* SuperUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SuperUI;
+		};
+		25E4CB56276AF997005BEF26 /* AddPaymentMethodImp */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AddPaymentMethodImp;
 		};
 		25EF2B602761DB9700E115A2 /* FinanceHome */ = {
 			isa = XCSwiftPackageProductDependency;

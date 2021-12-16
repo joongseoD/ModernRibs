@@ -12,6 +12,7 @@ import FinanceRepository
 import CombineUtil
 import AddPaymentMethod
 import RIBsUtil
+import Topup
 
 public protocol TopupRouting: Routing {
     func cleanupViews()
@@ -22,11 +23,6 @@ public protocol TopupRouting: Routing {
     func attachCardOnFile(paymentMethods: [PaymentMethod])
     func detachCardOnFile()
     func popToRoot()
-}
-
-public protocol TopupListener: AnyObject {
-    func topupDidClose()
-    func topupDidFinish()
 }
 
 protocol TopupInteractorDependency {

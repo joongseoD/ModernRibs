@@ -16,6 +16,7 @@ let package = Package(
         .package(name: "ModernRIBs", url: "https://github.com/DevYeom/ModernRIBs", .exact("1.0.1")),
         .package(path: "../Finance"),
         .package(path: "../Transport"),
+        .package(path: "../Platform"),
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],
@@ -28,6 +29,7 @@ let package = Package(
                 "ModernRIBs",
                 .product(name: "FinanceRepository", package: "Finance"),
                 .product(name: "TransportHome", package: "Transport"),
+                .product(name: "SuperUI", package: "Platform"),
             ]
         ),
     ]

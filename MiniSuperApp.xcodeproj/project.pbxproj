@@ -19,6 +19,9 @@
 		25EF2B612761DB9700E115A2 /* FinanceHome in Frameworks */ = {isa = PBXBuildFile; productRef = 25EF2B602761DB9700E115A2 /* FinanceHome */; };
 		25F0B3B727257F4300E00D9B /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 25F0B3B627257F4300E00D9B /* CombineExt */; };
 		25F7EC1E276AD106009FB270 /* ProfileHome in Frameworks */ = {isa = PBXBuildFile; productRef = 25F7EC1D276AD106009FB270 /* ProfileHome */; };
+		25F7EC20276AD5A4009FB270 /* AppRootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F7EC1F276AD5A4009FB270 /* AppRootComponent.swift */; };
+		25F7EC22276AD5F4009FB270 /* TransportHomeImp in Frameworks */ = {isa = PBXBuildFile; productRef = 25F7EC21276AD5F4009FB270 /* TransportHomeImp */; };
+		25F7EC24276ADACF009FB270 /* TopupImp in Frameworks */ = {isa = PBXBuildFile; productRef = 25F7EC23276ADACF009FB270 /* TopupImp */; };
 		25FD66D427561981008E76F1 /* AddPaymentMethod in Frameworks */ = {isa = PBXBuildFile; productRef = 25FD66D327561981008E76F1 /* AddPaymentMethod */; };
 		F57F6AFE26DB4CD700C0117D /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57F6AFD26DB4CD700C0117D /* RootTabBarController.swift */; };
 		F5829F5926DB2BC400BFA8CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5829F5826DB2BC400BFA8CD /* AppDelegate.swift */; };
@@ -33,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		25795153274F4E3400663588 /* Array+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
+		25F7EC1F276AD5A4009FB270 /* AppRootComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootComponent.swift; sourceTree = "<group>"; };
 		25FD66CD2756164E008E76F1 /* CX */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CX; path = MiniSuperApp/CX; sourceTree = "<group>"; };
 		25FD66CE27561662008E76F1 /* Finance */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Finance; path = MiniSuperApp/Finance; sourceTree = "<group>"; };
 		25FD66CF27561674008E76F1 /* Transport */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Transport; path = MiniSuperApp/Transport; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 				253157992757379B00E07E95 /* Topup in Frameworks */,
 				25F0B3B727257F4300E00D9B /* CombineExt in Frameworks */,
 				25FD66D427561981008E76F1 /* AddPaymentMethod in Frameworks */,
+				25F7EC22276AD5F4009FB270 /* TransportHomeImp in Frameworks */,
+				25F7EC24276ADACF009FB270 /* TopupImp in Frameworks */,
 				25B8B402275623DC00879B08 /* CombineUtil in Frameworks */,
 				258F91E6276ACCBD00E58D80 /* TransportHome in Frameworks */,
 				25F7EC1E276AD106009FB270 /* ProfileHome in Frameworks */,
@@ -131,6 +137,7 @@
 				F5829F7226DB34AA00BFA8CD /* AppRootBuilder.swift */,
 				F5829F7326DB34AA00BFA8CD /* AppRootInteractor.swift */,
 				F57F6AFD26DB4CD700C0117D /* RootTabBarController.swift */,
+				25F7EC1F276AD5A4009FB270 /* AppRootComponent.swift */,
 			);
 			path = AppRoot;
 			sourceTree = "<group>";
@@ -174,6 +181,8 @@
 				258F91E5276ACCBD00E58D80 /* TransportHome */,
 				258F91E7276ACE5800E58D80 /* AppHome */,
 				25F7EC1D276AD106009FB270 /* ProfileHome */,
+				25F7EC21276AD5F4009FB270 /* TransportHomeImp */,
+				25F7EC23276ADACF009FB270 /* TopupImp */,
 			);
 			productName = SuperRedApp;
 			productReference = F5829F5526DB2BC400BFA8CD /* MiniSuperApp.app */;
@@ -233,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25795154274F4E3400663588 /* Array+Utils.swift in Sources */,
+				25F7EC20276AD5A4009FB270 /* AppRootComponent.swift in Sources */,
 				F5829F7626DB34AA00BFA8CD /* AppRootBuilder.swift in Sources */,
 				F5829F7726DB34AA00BFA8CD /* AppRootInteractor.swift in Sources */,
 				F57F6AFE26DB4CD700C0117D /* RootTabBarController.swift in Sources */,
@@ -495,6 +505,14 @@
 		25F7EC1D276AD106009FB270 /* ProfileHome */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ProfileHome;
+		};
+		25F7EC21276AD5F4009FB270 /* TransportHomeImp */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TransportHomeImp;
+		};
+		25F7EC23276ADACF009FB270 /* TopupImp */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TopupImp;
 		};
 		25FD66D327561981008E76F1 /* AddPaymentMethod */ = {
 			isa = XCSwiftPackageProductDependency;

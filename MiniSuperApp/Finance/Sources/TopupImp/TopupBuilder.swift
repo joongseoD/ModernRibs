@@ -10,6 +10,7 @@ import FinanceRepository
 import CombineUtil
 import FinanceEntity
 import AddPaymentMethod
+import Topup
 
 public protocol TopupDependency: Dependency {
     var topupBaseViewController: ViewControllable { get }
@@ -40,17 +41,13 @@ final class TopupComponent: Component<TopupDependency>, TopupInteractorDependenc
 
 // MARK: - Builder
 
-public protocol TopupBuildable: Buildable {
-    func build(withListener listener: TopupListener) -> TopupRouting
-}
-
 public final class TopupBuilder: Builder<TopupDependency>, TopupBuildable {
 
     public override init(dependency: TopupDependency) {
         super.init(dependency: dependency)
     }
 
-    public func build(withListener listener: TopupListener) -> TopupRouting {
+    public func build(withListener listener: TopupListener) -> Routing {
         let paymentMethodStream = CurrentValuePublisher(PaymentMethod(id: "", name: "", digits: "", color: "", isPrimary: false))
         let component = TopupComponent(dependency: dependency, paymentMethodStream: paymentMethodStream)
         let interactor = TopupInteractor(dependency: component)

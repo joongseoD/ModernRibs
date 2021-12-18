@@ -5,6 +5,7 @@
 //  Created by Damor on 2021/11/07.
 //
 
+import Foundation
 import ModernRIBs
 import Combine
 import FinanceEntity
@@ -57,7 +58,9 @@ final class AddPaymentMethodInteractor: PresentableInteractor<AddPaymentMethodPr
     
     func didTapConfirm(with number: String, cvc: String, expiry: String) {
         let info = AddPaymentMethodInfo(number: number, cvc: cvc, expiration: expiry)
-        dependency.cardOnFileRepository.addCard(info: info)
+        dependency.cardOnFileRepository
+            .addCard(info: info)
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { _ in }) { [weak self] method in
                 self?.listener?.addPaymentMethodDidAddCard(paymentMethod: method)
             }

@@ -21,6 +21,7 @@ import Network
 import NetworkImp
 
 final class AppRootComponent: Component<AppRootDependency>, AppHomeDependency, FinanceHomeDependency, ProfileHomeDependency, TransportHomeDependency, TopupDependency, AddPaymentMethodDependency {
+    var mainQueue: AnySchedulerOf<DispatchQueue> { .main }
     var cardOnFileRepository: CardOnFileRepository
     var superPayRepository: SuperPayRepository
     

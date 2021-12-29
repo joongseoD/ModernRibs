@@ -11,6 +11,7 @@ import Foundation
 import CombineUtil
 import FinanceEntity
 import FinanceRepository
+import CombineSchedulers
 
 protocol EnterAmountRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
@@ -33,6 +34,7 @@ protocol EnterAmountListener: AnyObject {
 protocol EnterAmountInteractorDependency {
     var selectedPaymentMethod: ReadOnlyCurrentValuePublisher<PaymentMethod> { get }
     var superPayRepository: SuperPayRepository { get }
+    var mainQueue: AnySchedulerOf<DispatchQueue> { get }
 }
 
 final class EnterAmountInteractor: PresentableInteractor<EnterAmountPresentable>, EnterAmountInteractable, EnterAmountPresentableListener {
@@ -76,7 +78,7 @@ final class EnterAmountInteractor: PresentableInteractor<EnterAmountPresentable>
         presenter.startLoading()
         dependency.superPayRepository.topup(amount: amount,
                                             paymentMethodID: dependency.selectedPaymentMethod.value.id)
-            .receive(on: DispatchQueue.main)
+            .receive(on: dependency.mainQueue)
             .sink(receiveCompletion: { [weak self] _ in
                 self?.presenter.stopLoading()
             }) { [weak self] _ in

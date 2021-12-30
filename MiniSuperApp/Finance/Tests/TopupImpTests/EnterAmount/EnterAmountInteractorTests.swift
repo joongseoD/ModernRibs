@@ -72,4 +72,43 @@ final class EnterAmountInteractorTests: XCTestCase {
         XCTAssertEqual(repository.topupAmount, 1_000_000)
         XCTAssertEqual(listener.enterAmountDidFinishTopupCallCount, 1)
     }
+    
+    func testTopupWithFailure() {
+        // given
+        let paymentMethod = PaymentMethod(id: "id_0",
+                                          name: "name_0",
+                                          digits: "9999",
+                                          color: "#13ABE8FF",
+                                          isPrimary: false)
+        dependency.selectedPaymentMethodSubject.send(paymentMethod)
+        repository.shouldTopupSucceed = false
+        
+        // when
+        sut.didTapTopup(with: 1_000_000)
+        
+        // then
+        XCTAssertEqual(presenter.startLoadingCallCount, 1)
+        XCTAssertEqual(presenter.stopLoadingCallCount, 1)
+        XCTAssertEqual(listener.enterAmountDidFinishTopupCallCount, 0)
+    }
+    
+    func testDidTapClose() {
+        // given
+        
+        // when
+        sut.didTapClose()
+        
+        // then
+        XCTAssertEqual(listener.enterAmountDidTapCloseCallCount, 1)
+    }
+    
+    func testDidTapPaymentMethod() {
+        // given
+        
+        // when
+        sut.didTapPaymentMethod()
+        
+        // then
+        XCTAssertEqual(listener.enterAmountDidTapPaymentMethodCallCount, 1)
+    }
 }

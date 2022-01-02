@@ -147,6 +147,12 @@ let package = Package(
                         "TopupTestSupport",
                         "AddPaymentMethodTestSupport",
                         .product(name: "RIBsTestSupport", package: "Platform"),
-                    ])
+                        .product(name: "PlatformTestSupport", package: "Platform"),
+                    ],
+                    exclude: [
+                        "EnterAmount/__Snapshots__",
+                        "CardOnFile/__Snapshots__"
+                    ]
+                   )
     ]
 )

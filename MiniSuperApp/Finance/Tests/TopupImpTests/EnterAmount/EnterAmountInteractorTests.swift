@@ -18,7 +18,7 @@ final class EnterAmountInteractorTests: XCTestCase {
     private var listener: EnterAmountListenerMock!
     
     private var repository: SuperPayRepositoryMock! {
-        dependency.superPayRepository as! SuperPayRepositoryMock
+        dependency.superPayRepository as? SuperPayRepositoryMock
     }
     
     override func setUp() {

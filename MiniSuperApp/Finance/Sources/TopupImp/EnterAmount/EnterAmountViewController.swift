@@ -74,6 +74,7 @@ final class EnterAmountViewController: UIViewController, EnterAmountPresentable,
   }
   
   private func setupViews() {
+      overrideUserInterfaceStyle = .light
     title = "충전하기"
     view.backgroundColor = .backgroundColor
     
